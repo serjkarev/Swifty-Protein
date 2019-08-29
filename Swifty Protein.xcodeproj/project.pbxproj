@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		52420C432315F59800A356B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52420C422315F59800A356B4 /* AppDelegate.swift */; };
-		52420C452315F59800A356B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52420C442315F59800A356B4 /* ViewController.swift */; };
+		52420C452315F59800A356B4 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52420C442315F59800A356B4 /* ListViewController.swift */; };
 		52420C482315F59800A356B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52420C462315F59800A356B4 /* Main.storyboard */; };
 		52420C4A2315F59900A356B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52420C492315F59900A356B4 /* Assets.xcassets */; };
 		52420C4D2315F59900A356B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52420C4B2315F59900A356B4 /* LaunchScreen.storyboard */; };
+		529CA4452316FEB100944F2C /* backgroundvideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 529CA4442316FEB100944F2C /* backgroundvideo.mp4 */; };
+		529CA4472317367B00944F2C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CA4462317367B00944F2C /* LoginViewController.swift */; };
+		529CA44B2317426C00944F2C /* ligands.txt in Resources */ = {isa = PBXBuildFile; fileRef = 529CA44A2317426C00944F2C /* ligands.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		52420C3F2315F59800A356B4 /* Swifty Protein.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty Protein.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52420C422315F59800A356B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		52420C442315F59800A356B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		52420C442315F59800A356B4 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		52420C472315F59800A356B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52420C492315F59900A356B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52420C4C2315F59900A356B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52420C4E2315F59900A356B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		529CA4442316FEB100944F2C /* backgroundvideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = backgroundvideo.mp4; sourceTree = "<group>"; };
+		529CA4462317367B00944F2C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		529CA44A2317426C00944F2C /* ligands.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ligands.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +61,14 @@
 			isa = PBXGroup;
 			children = (
 				52420C422315F59800A356B4 /* AppDelegate.swift */,
-				52420C442315F59800A356B4 /* ViewController.swift */,
+				529CA4462317367B00944F2C /* LoginViewController.swift */,
+				52420C442315F59800A356B4 /* ListViewController.swift */,
 				52420C462315F59800A356B4 /* Main.storyboard */,
 				52420C492315F59900A356B4 /* Assets.xcassets */,
 				52420C4B2315F59900A356B4 /* LaunchScreen.storyboard */,
 				52420C4E2315F59900A356B4 /* Info.plist */,
+				529CA4442316FEB100944F2C /* backgroundvideo.mp4 */,
+				529CA44A2317426C00944F2C /* ligands.txt */,
 			);
 			path = "Swifty Protein";
 			sourceTree = "<group>";
@@ -123,6 +132,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				52420C4D2315F59900A356B4 /* LaunchScreen.storyboard in Resources */,
+				529CA44B2317426C00944F2C /* ligands.txt in Resources */,
+				529CA4452316FEB100944F2C /* backgroundvideo.mp4 in Resources */,
 				52420C4A2315F59900A356B4 /* Assets.xcassets in Resources */,
 				52420C482315F59800A356B4 /* Main.storyboard in Resources */,
 			);
@@ -135,7 +146,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52420C452315F59800A356B4 /* ViewController.swift in Sources */,
+				529CA4472317367B00944F2C /* LoginViewController.swift in Sources */,
+				52420C452315F59800A356B4 /* ListViewController.swift in Sources */,
 				52420C432315F59800A356B4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
