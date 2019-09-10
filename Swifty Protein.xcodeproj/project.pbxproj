@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52104D4223280D1D0043F4F8 /* LigandsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52104D4123280D1D0043F4F8 /* LigandsTableViewCell.swift */; };
 		52420C432315F59800A356B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52420C422315F59800A356B4 /* AppDelegate.swift */; };
 		52420C452315F59800A356B4 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52420C442315F59800A356B4 /* ListViewController.swift */; };
 		52420C482315F59800A356B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52420C462315F59800A356B4 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52104D4123280D1D0043F4F8 /* LigandsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LigandsTableViewCell.swift; sourceTree = "<group>"; };
 		52420C3F2315F59800A356B4 /* Swifty Protein.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty Protein.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52420C422315F59800A356B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52420C442315F59800A356B4 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				52420C422315F59800A356B4 /* AppDelegate.swift */,
 				529CA4462317367B00944F2C /* LoginViewController.swift */,
 				52420C442315F59800A356B4 /* ListViewController.swift */,
+				52104D4123280D1D0043F4F8 /* LigandsTableViewCell.swift */,
 				52420C462315F59800A356B4 /* Main.storyboard */,
 				52420C492315F59900A356B4 /* Assets.xcassets */,
 				52420C4B2315F59900A356B4 /* LaunchScreen.storyboard */,
@@ -148,6 +151,7 @@
 			files = (
 				529CA4472317367B00944F2C /* LoginViewController.swift in Sources */,
 				52420C452315F59800A356B4 /* ListViewController.swift in Sources */,
+				52104D4223280D1D0043F4F8 /* LigandsTableViewCell.swift in Sources */,
 				52420C432315F59800A356B4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

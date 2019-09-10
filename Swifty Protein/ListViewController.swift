@@ -10,10 +10,11 @@ import UIKit
 import AVFoundation
 import AVKit
 
-class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
-    
+class ListViewController: UIViewController {
     
     var ligandsArray: [String] = []
+    var searchLigands: [String] = []
+    // to do: add api class 
     
     @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var ligandsTableView: UITableView!
@@ -23,11 +24,16 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         ligandsTableView.dataSource = self
         ligandsTableView.delegate = self
+        searchBar.delegate = self
+        
+        searchBar.barTintColor = UIColor.clear
+        searchBar.backgroundImage = UIImage()
+        
         readFromTxt()
+        searchLigands = ligandsArray
         setupView()
-        // Do any additional setup after loading the view.
     }
-
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -45,21 +51,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
     }
-    
-    //MARK:- Table view methods
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ligandsArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ligandsTableView.dequeueReusableCell(withIdentifier: "ligandCell", for: indexPath)
-        cell.textLabel?.text = ligandsArray[indexPath.row]
-        cell.textLabel?.textAlignment = NSTextAlignment.center
-        cell.textLabel?.textColor = UIColor.cyan
-        return cell
-    }
-    
+
     //MARK:- Background video block
     
     private func setupView() {
@@ -81,12 +73,51 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
 }
 
-extension ListViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("Click!!!!!!!!!!!!!!!")
+//MARK: - TableView Methods
+
+extension ListViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchLigands.count
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = ligandsTableView.dequeueReusableCell(withIdentifier: "ligandCell", for: indexPath) as! LigandsTableViewCell
+        cell.libandName.text = searchLigands[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //to do: api request method call
+    }
+    
+}
+
+//MARK: - SearchBar Methods
+
+extension ListViewController: UISearchBarDelegate {
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("text Change?????????????????")
+        searchLigands = searchText.isEmpty ? ligandsArray : ligandsArray.filter { (item: String) -> Bool in
+            return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        }
+        ligandsTableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchLigands = ligandsArray
+        ligandsTableView.reloadData()
+        searchBar.resignFirstResponder()
+        searchBar.setShowsCancelButton(false, animated: true)
     }
 }
