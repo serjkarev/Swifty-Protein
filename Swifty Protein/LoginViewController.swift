@@ -13,19 +13,21 @@ import LocalAuthentication
 
 class LoginViewController: UIViewController {
     
+    var context = LAContext()
+    
+    enum AuthenticationState {
+        case loggedin, loggedout
+    }
+    
+    var state = AuthenticationState.loggedout
     
     @IBOutlet weak var videoView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
+        state = .loggedout
         setupView()
-        
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = UIColor.clear
-        self.navigationController?.navigationBar.tintColor = UIColor.white
         
     }
     
@@ -34,8 +36,30 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func logInButtonPressed(_ sender: UIButton) {
-        
+        if state == .loggedin {
+            state = .loggedout
+        } else {
+            context = LAContext()
+            context.localizedCancelTitle = "Cancel"
+            var error: NSError?
+            if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+                let reason = "Log in to your account"
+                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason ) { success, error in
+                    if success {
+                        DispatchQueue.main.async { [unowned self] in
+                            self.state = .loggedin
+                            self.performSegue(withIdentifier: "goToTable", sender: nil)
+                        }
+                    } else {
+                        print(error?.localizedDescription ?? "Failed to authenticate")
+                    }
+                }
+            } else {
+                print(error?.localizedDescription ?? "Can't evaluate policy")
+            }
+        }
     }
+    
     
     private func setupView() {
         let path = URL(fileURLWithPath:  Bundle.main.path(forResource: "backgroundvideo", ofType: "mp4")!)
