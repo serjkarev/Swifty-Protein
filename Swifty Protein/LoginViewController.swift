@@ -9,13 +9,16 @@
 import UIKit
 import AVFoundation
 import AVKit
+import LocalAuthentication
 
 class LoginViewController: UIViewController {
-
+    
+    
     @IBOutlet weak var videoView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupView()
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -28,6 +31,10 @@ class LoginViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    @IBAction func logInButtonPressed(_ sender: UIButton) {
+        
     }
     
     private func setupView() {
@@ -48,3 +55,4 @@ class LoginViewController: UIViewController {
     }
 
 }
+
